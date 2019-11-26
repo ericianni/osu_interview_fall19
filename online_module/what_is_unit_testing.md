@@ -1,4 +1,4 @@
-| [Module Overview](../unittest_module.md) | [What is Unit Testing](../what_is_unit_testing.md) | [Black Box](../black_box.md) | [White Box](../white_box.md) | [Debrief](../debrief.md) |
+| [Module Overview](./unittest_module.md) | [What is Unit Testing](./what_is_unit_testing.md) | [Black Box](./black_box.md) | [White Box](./white_box.md) | [Debrief](./debrief.md) |
 |-----------------|----------------------|-----------|-----------|---------|
 |                 |                      |           |           |         |
 
@@ -101,5 +101,5 @@ Considering that there is a "Write your own test!" comment I am sure you answere
 
 When you either find the error or grow bored with the hoops I am asking you to jump through find me on the next page for the answer.
 
-[Black Box testing](../black_box.md)
+[Black Box testing](./black_box.md)
 
