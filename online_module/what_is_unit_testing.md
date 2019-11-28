@@ -97,9 +97,14 @@ To run the tests simply click the **play** button in the top center. In the cons
 
 * Seeing as both of our tests pass we can safely assume `sum()` is correct and we don't need any more tests?
 
-Considering that there is a "Write your own test!" comment I am sure you answered correctly that we can't assume `sum()` is correct. I can tell you now that there is indeed a **fault** in the code that leads to a **failure** (see what I did there?). Without looking at the implementation of `sum()` see if you can write a test that can expose the error.
+Considering that there is a "Write your own test!" comment I am sure you answered correctly that we can't assume `sum()` is correct. I can tell you now that there is indeed a **fault** in the code that leads to a **failure** (see what I did there?). Without looking at the implementation of `sum()` see if you can write a test that can expose the error. For more details on how to use _unittest_ please see the resource section below.
 
 When you either find the error or grow bored with the hoops I am asking you to jump through find me on the next page for the answer.
 
 [Black Box testing](./black_box.md)
 
+
+### Resources
+
+* [Python unittest documentation](https://docs.python.org/3/library/unittest.html)
+* [Python unittest tutorial](https://pymotw.com/2/unittest/)
