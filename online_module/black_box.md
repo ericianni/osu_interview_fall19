@@ -56,11 +56,11 @@ Can you think of at least one advantage and at least one disadvantage?
 
 Check your guesses below:
 
-* Advantages
+* **Advantages**
   * Quick to write
   * Can cover large portions of the input domain with very little code
   * Can potentially generate an input that no-one considered
-* Disadvantages
+* **Disadvantages**
   * Many random inputs could fall under the same "test case" so become redudent and a waste of resources
   * May not test the _tricky_ parts of the input domain like _edge cases_ (see boundary testing below)
   
@@ -68,6 +68,31 @@ Check your guesses below:
 
 This approach is based on the idea that errors are more likely to be introduced around the _boundaries_ of the input domain. 
 
+Think about it for a moment. If the specification says the user needs to input a password that is between 8-16 (inclusive) characters long where is it most likely that the developer makes an error and introduces a fault?
+
+**Thinking Cap Time**
+
+Take a moment and think of a few password lenghts that would be useful to test with and one that wouldn't likely produce a failure.
+
+Did you come up with testing with passwords of lengths 7, 8, 16, and 17 for being useful and something like 12 as not very helpful?
+
+In case you wanted to see the reason for why this is the case, take a look at the following snippet of code:
+
+```python
+verify_pwd(pwd):
+	if len(pwd) < 8 or len(pwd) >= 16:
+		print("Passwords need to be between 8-16 characters long (inclusive)")
+```
+
+If we are being honest with ourselves, we have all made such mental errors when it comes to `<` and `<=`! These are the things our unit tests can help protect us from!
+
+
 ### Time to get our hands dirty!
 
+Now that we have learned about a few approaches to black box testing, it is time to try your hand at writing some tests to identify failures in a piece of code.
 
+Below you will find the specification for `mystery_func` and two sample tests. Your task is to write tests to expose the faults in the implementation. There are two faults in the code but **no peeking!**
+
+**Hint**: You need to test with both _good_ and _bad_ data. So make sure you are testing with values that should return `False` as well as `True`.
+
+<iframe height="400px" width="100%" src="https://repl.it/@ericianni/blackbox2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
