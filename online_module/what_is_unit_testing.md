@@ -14,11 +14,11 @@ By testing our software we hope to identify instances where the behavior of the 
 
 * **Failure** - a deviation from the expected behavior
 
-These failures occur because there exists a "bug" in the code: a _fault_.
+  * These failures occur because there exists a "bug" in the code: a _fault_.
 
 * **Fault**: - an instance of incorrect code that can lead to a failure
 
-A fault is introduced to the program when a programmer makes a mistake: an _error_.
+  * A fault is introduced to the program when a programmer makes a mistake: an _error_.
 
 * **Error** - a mistake that introduces a fault (e.g. typo and conceptual misunderstanding)
 
