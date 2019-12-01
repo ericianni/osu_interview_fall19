@@ -36,7 +36,7 @@ Where as Black Box testing focused on verifying that the software specifications
 
 _Code coverage_ is the extent to which a given test suite exectutes the source code of the software.
 
-#### Types of Coverage
+#### Types of Coverage (aka Coverage Criteria)
 
 **Statement Coverage**
 
@@ -76,7 +76,7 @@ So how do we get to 100% statement coverage? All the non-executed statements are
 
 Take a moment and ponder some values that would trigger these two conditionals: `if a*3>=b*2` and `if a>b*b`. Now go and fill in `test5` and `test6` below. If you succeed in executing these last two lines you will see confirmation printed to the console.
 
-<iframe height="600px" width="100%" src="https://repl.it/@ericianni/whitebox1?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<!-- <iframe height="600px" width="100%" src="https://repl.it/@ericianni/whitebox1?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe> -->
 
 **My solutions**
 
@@ -91,9 +91,120 @@ We finally have 100% statement coverage! YAY! There is nothing more to learn abo
 
 **Branch Coverage**
 
-<iframe height="600px" width="100%" src="https://repl.it/@ericianni/whitebox2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+How is it possible that running every statement in a program doesn't guarantee good coverage? The answer lies in how well our tests cover the different branches in our code. _Branches_ occur anywhere in the program where a decision has to be made and the program. These decisions occur in statements that contain conditionals and we need to make sure each is tested as evaluating as either `True` or `False`.
 
-**Conditional Coverage**
+Take a look at the source of `mystery_func()` below. It consists of only 4 statements and they can all be covered by the test I have provided.
+
+<!-- <iframe height="600px" width="100%" src="https://repl.it/@ericianni/whitebox2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe> -->
+
+![mystery function statement coverage](./images/branch_coverage1.png)
+
+![mystery function branch diagram](./images/branch_diagram1.png)
+
+So how can we do better? The title of this section seems to suggest we need to think in terms of _branches_. In this small sample we have just one conditional statement `if a>1`. It is important to remember that all `if` statments have _two_ branches; our `test1` only covers the `True` branch.
+
+**Your Turn!**
+
+Fill in `test2` above so that the `False` branch is executed and we have 100% branch coverage. Don't worry what your test `asserts` because this is a contrived function with no specification as to the correct behavior (see disadvantages of White Box testing above), we just want to practice.
+
+**Answer**
+
+Here is the code I had for `test2`:
+
+```python
+def test2():
+	self.assertTrue(mysteryFunc(1)==100)
+```
+
+[mystery function branch diagram](./images/branch_diagram2.png)
+
+Now we have `test1` execute the `True` branch and `test2` execute the `False` branch. Now we have 100% branch coverage, but what do you notice about my solution? Does it help identify the divide by zero fault? I want to stress that just because you have a high level of coverage doesn't mean you are guarnanteed to find faults. Please see some futher musings in the [conclusion to this module](./debrief.md).
+
+**Question Time**
+
+Do you think 100% branch coverage means 100% statement coverage? Why?
+
+**Answer Time**
+
+100% _branch_ coverage guarantees 100% _statement_ coverage. In this way we can say branch coverage _subsums_ statement coverage. 
+
+```python
+def mystery_func(a):
+  b = 0
+  if a>1 or a==0:
+    b = 10
+  return 100/b
+```
+
+**Condition Coverage**
+
+With branch coverage we were only concerned with if the `if` statement as a whole evaluated as either `True` or `False` because that is what dictates which branch is executed. With this new coverage criteria we are concerned with _each_ condition within that `if` statement. 
+
+_Condition_ coverage requires that we have tests that evaluate each individual condition as both `True` and `False`. If you look at the editor below, you will see the two tests I wrote before. 
+
+**EMBED condition coverage sample with both tests from the previous demo**
+
+If we create a truth table for each test we get the following:
+
+| Test | `a>1` | `a==0`   |
+| ---- | ----- | ------   |
+| 1    | T     | not eval |
+| 2    | F     | T        |
+
+Notice how we get 100% branch coverage without ever evaluating `a==0` as `False`.
+
+In order for us to get 100% condition coverage we need to have tests that evaluate `a==0` as _both_ `True` and `False`. Given that we are dealing with an `or` we will only ever check the second condition if the first is `False` so we need to have a truth table as follows:
+
+| `a>1` | `a==0`   |
+| ----- | ------   |
+| T     | not eval |
+| F     | T        |
+| F     | F        |
+
+Looking at this truth table we can keep our `test1` but we need new tests to evaluate rows 2 and 3.
+
+Having a test for `a=0` will fail the first condition but evaluate as `True` for the second. Then if we use `a=1` both conditions can evaluate to `False`. Please see the editor below.
+
+**EMBED CODE for condition coverage with these 3 tests**
+
+We have now achieved 100% condition coverage! We also have 100% branch coverage! 
+
+**Reflection Time**
+
+Above we discussed how branch coverage _subsums_ statement coverage. Do you think condition coverage _subsums_ branch coverage?
+
+**Answer Time**
+
+While it may seem like that you can't have 100% condition coverage without 100% branch coverage, this is not the case.
+
+Let's take a look at a different `if` statement with different conditions. Can you fashion a truth table that meets the 100% condition coverage, but not 100% branch coverage?
+
+**Hint**
+
+* Condition coverage only requires that each condition is evaluated as `True` and `False` at least once.
+
+```python
+def mystery_func(a,b):
+	if a or b:
+		print('At least one is True')
+	else:
+		print('At least one is False')
+```
+
+**Solution**
+
+| a | b |
+| - | - |
+| T | F |
+| F | T |
+
+The above truth table would meet 100% condition coverage because both `a` and `b` are evaluated as `True` and `False`. Yet it does not meet the requirements of 100% branch coverage due to the `or` statement evaluating to `True` for both tests so we never execute the `else` branch.
+
+Therefore we _cannot_ state that condition coverage subsums _branch_ coverage, and furthermore it doesn't even subsum statement coverage. 
+
+**Branch and Condition Coverage**
+
+There is a coverage criteria called Branch and Condition coverage that is sometimes known as decision/condition coverage. This coverage attempts to have 100% branch _and_ 100% condition coverage. As you can imagine this can result in large numbers of tests to ensure that all possible combinations of branches and conditions are met. For this reason testers often use a modified version known as _Modified Decision/Modified Condition_ coverage. You will learn about this in a later module.
 
 **Path Coverage**
 
