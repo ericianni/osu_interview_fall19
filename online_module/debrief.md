@@ -34,6 +34,10 @@ Regression testing is a form of testing where you run your test suite regularly 
 
 This is an automated process of verifying/testing a developer's code changes before merging it with the central repository. In this way it is similar to regression testing in that strives to prevent faults from being introduced to the codebase that all other developers rely on.
 
+**Error Guessing**
+
+Remember when we had that divide by zero fault that we could have missed, even with 100% branch coverage? This is a situation where it is important to think about about common errors programmers make. Some of these errors are specific to the particular task at hand, but others are very common across the board. These include things like divide by zero, null pointers (in C/C++), and blank entries in input fields.
+
 ### Video Resources
 
 #### PyCharm Testing Demo
