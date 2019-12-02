@@ -17,7 +17,6 @@ These all mean the same thing, but _White Box_ is perhaps the most common name.
 So as I mentioned above, the idea behind this type of testing is that it is based on the code, _not_ the specifications. It is the job of the tester to make sure all aspects of the code are tested or _covered_.
 
 ### Advantages of White Box Testing
-
 * Based on the code so the quality of the tests can be measured objectively
 * Can be used to compare test suites by measuring their quality
 * Can directly test the coded behavior
@@ -49,7 +48,7 @@ This is a way of measuring the quality of a testing suite based on the amount of
 | Test | Values   |
 | -    | -        |
 | 1    | a=1, b=3 |
-| 3    | a=5, b=9 |
+| 2    | a=5, b=9 |
 
 Running the first test results in the following lines being executed: 1, 2, 4, 6, and 7.
 
@@ -76,7 +75,7 @@ So how do we get to 100% statement coverage? All the non-executed statements are
 
 Take a moment and ponder some values that would trigger these two conditionals: `if a*3>=b*2` and `if a>b*b`. Now go and fill in `test5` and `test6` below. If you succeed in executing these last two lines you will see confirmation printed to the console.
 
-<!-- <iframe height="600px" width="100%" src="https://repl.it/@ericianni/whitebox1?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe> -->
+<iframe height="600px" width="100%" src="https://repl.it/@ericianni/whitebox1?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 **My solutions**
 
@@ -93,13 +92,13 @@ We finally have 100% statement coverage! YAY! There is nothing more to learn abo
 
 How is it possible that running every statement in a program doesn't guarantee good coverage? The answer lies in how well our tests cover the different branches in our code. _Branches_ occur anywhere in the program where a decision has to be made and the program. These decisions occur in statements that contain conditionals and we need to make sure each is tested as evaluating as either `True` or `False`.
 
-Take a look at the source of `mystery_func()` below. It consists of only 4 statements and they can all be covered by the test I have provided.
+Take a look at the source of our new `mystery_func()` below. It consists of only 4 statements and they can all be covered by the test I have provided.
 
-<!-- <iframe height="600px" width="100%" src="https://repl.it/@ericianni/whitebox2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe> -->
+<iframe height="600px" width="100%" src="https://repl.it/@ericianni/whitebox2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-![mystery function statement coverage](./images/branch_coverage1.png)
-
-![mystery function branch diagram](./images/branch_diagram1.png)
+| ![mystery function branch diagram](./images/branch_diagram1.png) |
+| -                                                                |
+| Branch Diagram (test1 & test2)                                   |
 
 So how can we do better? The title of this section seems to suggest we need to think in terms of _branches_. In this small sample we have just one conditional statement `if a>1`. It is important to remember that all `if` statments have _two_ branches; our `test1` only covers the `True` branch.
 
@@ -116,7 +115,9 @@ def test2():
 	self.assertTrue(mysteryFunc(1)==100)
 ```
 
-[mystery function branch diagram](./images/branch_diagram2.png)
+| ![mystery function branch diagram](./images/branch_diagram2.png) |
+| -                                                                |
+| Branch Diagram (test1 & test2)                                   |
 
 Now we have `test1` execute the `True` branch and `test2` execute the `False` branch. Now we have 100% branch coverage, but what do you notice about my solution? Does it help identify the divide by zero fault? I want to stress that just because you have a high level of coverage doesn't mean you are guarnanteed to find faults. Please see some futher musings in the [conclusion to this module](./debrief.md).
 
@@ -128,28 +129,20 @@ Do you think 100% branch coverage means 100% statement coverage? Why?
 
 100% _branch_ coverage guarantees 100% _statement_ coverage. In this way we can say branch coverage _subsums_ statement coverage. 
 
-```python
-def mystery_func(a):
-  b = 0
-  if a>1 or a==0:
-    b = 10
-  return 100/b
-```
-
 **Condition Coverage**
 
 With branch coverage we were only concerned with if the `if` statement as a whole evaluated as either `True` or `False` because that is what dictates which branch is executed. With this new coverage criteria we are concerned with _each_ condition within that `if` statement. 
 
 _Condition_ coverage requires that we have tests that evaluate each individual condition as both `True` and `False`. If you look at the editor below, you will see the two tests I wrote before. 
 
-**EMBED condition coverage sample with both tests from the previous demo**
+<iframe height="600px" width="100%" src="https://repl.it/@ericianni/whitebox3?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 If we create a truth table for each test we get the following:
 
 | Test | `a>1` | `a==0`   |
 | ---- | ----- | ------   |
 | 1    | T     | not eval |
-| 2    | F     | T        |
+| 2    | F     | F        |
 
 Notice how we get 100% branch coverage without ever evaluating `a==0` as `False`.
 
@@ -161,11 +154,14 @@ In order for us to get 100% condition coverage we need to have tests that evalua
 | F     | T        |
 | F     | F        |
 
-Looking at this truth table we can keep our `test1` but we need new tests to evaluate rows 2 and 3.
+Looking at this truth table we can keep our `test1` and `test2`, but we need a new test to cover row 2.
 
 Having a test for `a=0` will fail the first condition but evaluate as `True` for the second. Then if we use `a=1` both conditions can evaluate to `False`. Please see the editor below.
 
-**EMBED CODE for condition coverage with these 3 tests**
+```python
+def test3(self):
+    self.assertTrue(mystery_func(0)==100)
+```
 
 We have now achieved 100% condition coverage! We also have 100% branch coverage! 
 
@@ -204,8 +200,32 @@ Therefore we _cannot_ state that condition coverage subsums _branch_ coverage, a
 
 **Branch and Condition Coverage**
 
-There is a coverage criteria called Branch and Condition coverage that is sometimes known as decision/condition coverage. This coverage attempts to have 100% branch _and_ 100% condition coverage. As you can imagine this can result in large numbers of tests to ensure that all possible combinations of branches and conditions are met. For this reason testers often use a modified version known as _Modified Decision/Modified Condition_ coverage. You will learn about this in a later module.
+There is a coverage criteria called Branch and Condition coverage that is sometimes known as decision/condition coverage. This coverage attempts to have 100% branch _and_ 100% condition coverage. As you can imagine this can result in large numbers of tests to ensure that all possible combinations of branches and conditions are met. For this reason testers often use a modified version known as _Modified Condition/Decision Coverage_ (MC/DC) coverage. You will learn about this in a later module.
+
+But to continue our talk of subsumption, branch and condition coverage subsums both branch coverage and condition coverage.
 
 **Path Coverage**
 
+Wait there are more types of coverage?! This is the last one we will discuss. Path coverage is where the tests strive to test every _path_ through the code. A path is a unique series of branches. So with path coverage you will likely have to traverse each branch multiple times.
 
+**Let's see what you can do!**
+
+Below is a flow diagram for a function. You do not need to concern yourself with what the function does or what each node does. Your task is to count the number of paths you think exist in this function between point A and B.
+
+![Paths](./images/path_diagram1.png)
+
+**How'd you do?**
+
+The answer is there are 4 paths from A to B.
+
+![Paths](./images/path_diagram2.png)
+
+As you can probably guess, path coverage can get very complicated very quickly. This is even more evident when you attempt to do path coverage for entire programs, not just a single function. In that situation you need to cover all the paths _between_ the functions and then the paths _within_ the functions. For this reason path coverage is not very often accomplished to high percentage rates.
+
+### White Box Testing Wrap-up
+
+Believe it or not there are stil more types of code coverage out there, but if you can remember these you are in _very_ good shape. The most important thing to remember is that just like black box testing, white box testing has large blindspots and it is important to use them together.
+
+Another thing to consider is that different application requirements will have different levels of coverage that are required. If you are writing a small app you don't need to probably use MC/DC, but if you are designing software for a 787 Dreamliner you will absolutely need to use it.
+
+Please proceed to the next section for a [Unit Test Debrief](./debrief.md)
