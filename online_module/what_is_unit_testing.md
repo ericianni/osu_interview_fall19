@@ -10,7 +10,7 @@ The goal of the Verification phase is to establish that the work done during the
 
 Software Testing can be boiled down to trying to generate a fail state in the software with the ultimate goal of being unsuccessful in doing so.
 
-By testing our software we hope to identify instances where the behavior of the program deviates from the expected: a _failure_.
+By testing our software, we hope to identify instances where the behavior of the program deviates from the expected: a _failure_.
 
 * **Failure** - a deviation from the expected behavior
 
@@ -22,11 +22,11 @@ By testing our software we hope to identify instances where the behavior of the 
 
 * **Error** - a mistake that introduces a fault (e.g. typo and conceptual misunderstanding)
 
-So in plain English, a test can help identify when the program does not behave as intended and therefore indicates a fault exists. Once we know a fault exists, we can track it down and fix it, but we may never know what error actually caused the fault in the first place, but that is ultimately irrelevent.
+So, in plain English, a test can help identify when the program does not behave as intended and therefore indicates a fault exists. Once we know a fault exists, we can track it down and fix it, but we may never know what error actually caused the fault in the first place, but that is ultimately irrelevant.
 
 ### Types of Testing
 
-There are dozens of different ways of testing software, with more being developed and researched everyday, but each can generally be put into one of two categories: Functional Testing or Non-functional Testing.
+There are dozens of different ways of testing software, with more being developed and researched every day, but each can generally be put into one of two categories: Functional Testing or Non-functional Testing.
 
 **Thought Experiment**
 
@@ -77,17 +77,17 @@ Both Functional and Non-functional Testing is very important to the successful d
 
 For this class we will be focusing mostly on Functional Testing and, for this module, Unit Testing in particular.
 
-#### So what is Unit Testing Already!?
+#### So, what is Unit Testing Already!?
 
 I have put this off long enough. It is time for the meat of the discussion! _Unit Testing_ is when individual _units_ of the software are _tested_...
 
 Drat! You shouldn't use the word when defining it! Let's try again.
 
-_Unit Testing_ is when the smallest compenent of a software system is verified to produce the expected behavior.
+_Unit Testing_ is when the smallest component of a software system is verified to produce the expected behavior.
 
 OK, that was _MUCH_ better! The smallest component is also called a _unit_ and we verify using _testing_, hence the name Unit Testing. 
 
-A _unit_ will typically be a single method that takes a few inputs and has a single output. Below you will find an example of how we can use Python's unittest library to write automated tests. The two provided tests are attempting to verify that our implementaiton of `sum()` behaves correctly.
+A _unit_ will typically be a single method that takes a few inputs and has a single output. Below you will find an example of how we can use Python's unittest library to write automated tests. The two provided tests are attempting to verify that our implementation of `sum()` behaves correctly.
 
 To run the tests simply click the **play** button in the top center. In the console you should see that we have two tests that are run and that they both pass with an "ok".
 

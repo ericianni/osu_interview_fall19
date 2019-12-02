@@ -4,7 +4,7 @@
 
 ### Bringing it all together
 
-Congratulations! That was quite a lot of information to pack into a single module but we made it through. Let's go over some key points. 
+Congratulations! That was quite a lot of information to pack into a single module, but we made it through. Let's go over some key points. 
 
 #### Unit Testing
 
@@ -21,16 +21,16 @@ Congratulations! That was quite a lot of information to pack into a single modul
 #### White Box Testing
 
 * Based purely on the code as written
-* Has to be implemented by someone familiar with the code
+* Must be implemented by someone familiar with the code
 * Can be used to compare test suites' effectiveness
 
 ### Additional Musings
 
 **Regression Testing**
 
-Regression testing is a form of testing where you run your test suite regurarly as you make changes to the code to ensure you haven't broken any functionality. If we are all honest with ourselves, we know we have spent hours tinkering on a project only to discover it no longer works and we are unsure where the fault is!
+Regression testing is a form of testing where you run your test suite regularly as you make changes to the code to ensure you haven't broken any functionality. If we are all honest with ourselves, we know we have spent hours tinkering on a project only to discover it no longer works and we are unsure where the fault is!
 
-**Continous Intergration**
+**Continuous Integration**
 
 This is an automated process of verifying/testing a developer's code changes before merging it with the central repository. In this way it is similar to regression testing in that strives to prevent faults from being introduced to the codebase that all other developers rely on.
 
@@ -51,7 +51,7 @@ This is an automated process of verifying/testing a developer's code changes bef
   * **Link to a recorded lecture of me going over white box testing using slides and digital white board**
   
   
-### Assingments and Quizzes
+### Assignments and Quizzes
 
 * Please view this week's assignment (**link to assignment page**) where you will be running through PyCharm's testing functions using the PyCharm Course provided. This is an activity so is based on completion and the instructions walk you through every step of the way.
 
@@ -59,5 +59,5 @@ This is an automated process of verifying/testing a developer's code changes bef
 
 ### Moving Forward
 
-Next week we will be tackling Partition Testing, which is a form of black box testing. We will use some automated software to help us identify tests that need writing so we aren't just thrashing about wildly.
+Next week we will be tackling Partition Testing, which is a form of black box testing. We will use some automated software to help us identify tests that need writing, so we aren't just thrashing about wildly.
   

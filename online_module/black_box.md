@@ -9,17 +9,17 @@ Did you find the error without looking at the source for `sum()`? If you didn't 
 
 <iframe height="600px" width="100%" src="https://repl.it/@ericianni/blackbox1?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-This third test shows that `sum()` doesn't correctly add a floating point to an integer. Now that we have observed a failure we know that there is a fault in the code that has something to do with floating point numbers.
+This third test shows that `sum()` doesn't correctly add a floating point to an integer. Now that we have observed a failure, we know that there is a fault in the code that has something to do with floating point numbers.
 
 Notice how we were able to do all of this without ever looking at the source for `sum()`! We have just written our first _Black Box_ test!
 
 ### What is Black Box Testing?
 
-Imagine there is a box sitting before you. It is solid black and you cannot see into it. Now imagine that you are told the box contains 20 lbs of gold! You are offered this box in exchange for your 2002 Dodge Neon. You know that if what you are being told is true, this box would be worth more than $18,000 while your car is worth less than half that. But how can you know that the box really has 20 lbs of gold in it?
+Imagine there is a box sitting before you. It is solid black and you cannot see into it. Now imagine that you are told the box contains 20 lbs. of gold! You are offered this box in exchange for your 2002 Dodge Neon. You know that if what you are being told is true, this box would be worth more than $18,000 while your car is worth less than half that. But how can you know that the box really has 20 lbs. of gold in it?
 
-The easy answer would be to open it up and look inside. But this mysterious figure will not allow that so you need to figure out another way to verify at least part of what is being promised.
+The easy answer would be to open it up and look inside. But this mysterious figure will not allow that, so you need to figure out another way to verify at least part of what is being promised.
 
-One way to verify part of the claim is to weigh the box. If the box weighs <= 20 lbs you know that this person is a con-artist because it doesn't meet the weight expectations. 
+One way to verify part of the claim is to weigh the box. If the box weighs <= 20 lbs. you know that this person is a con-artist because it doesn't meet the weight expectations. 
 
 This is an example of black-box testing outside of the world of software development. You were presented with an object and given a description. You were able verify at least part of that description without having any actual knowledge of the contents of the box. 
 
@@ -61,7 +61,7 @@ Check your guesses below:
   * Can cover large portions of the input domain with very little code
   * Can potentially generate an input that no-one considered
 * **Disadvantages**
-  * Many random inputs could fall under the same "test case" so become redudent and a waste of resources
+  * Many random inputs could fall under the same "test case" so become redundant and a waste of resources
   * May not test the _tricky_ parts of the input domain like _edge cases_ (see boundary testing below)
   
 #### Boundary Testing
@@ -72,7 +72,7 @@ Think about it for a moment. If the specification says the user needs to input a
 
 **Thinking Cap Time**
 
-Take a moment and think of a few password lenghts that would be useful to test with and one that wouldn't likely produce a failure.
+Take a moment and think of a few password lengths that would be useful to test with and one that wouldn't likely produce a failure.
 
 Did you come up with testing with passwords of lengths 7, 8, 16, and 17 for being useful and something like 12 as not very helpful?
 
@@ -104,7 +104,7 @@ Conditions:
 
 **Hints**: 
 
-* You need to test with both _good_ and _bad_ data. So make sure you are testing with values that should return `False` as well as `True`
+* You need to test with both _good_ and _bad_ data. So, make sure you are testing with values that should return `False` as well as `True`
 * Remember to test the _edge cases_
 
 <iframe height="600px" width="100%" src="https://repl.it/@ericianni/blackbox2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
@@ -119,8 +119,8 @@ You have waited long enough! It is time for you to finally look at the code you 
 
 ### Black Box Testing Wrap-up
 
-So those are the basics of black box testing. There is still much more to learn about such as _Partiition Testing_ and _Model Based Testing_. In a later module you will be learning more about both of these and implementing a simple _Partition Testing_ system.
+So those are the basics of black box testing. There is still much more to learn about such as _Partition Testing_ and _Model Based Testing_. In a later module you will be learning more about both of these and implementing a simple _Partition Testing_ system.
 
-For now though, we need to move onto the sibling of _Black Box_ testing: _White Box_ testing.
+For now, though, we need to move onto the sibling of _Black Box_ testing: _White Box_ testing.
 
 Continue onto [_White Box_ testing](./white_box.md)
