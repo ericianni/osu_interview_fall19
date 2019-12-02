@@ -17,9 +17,9 @@ Prior to this module students will have had to have...
 Students will be able to...  
 
 * **Describe** _unit testing_ and its place in the software design process
-* **Describe** the difference between _black-box_ and _white-box_ testing
-* **Identify** scenarios when _black-box_ and _white_box_ testing are best suited
-* **Demonstrate** writing both _black-box_ and _white_box_ unit tests
+* **Describe** the difference between _black box_ and _white box_ testing
+* **Identify** scenarios when _black box_ and _white_box_ testing are best suited
+* **Demonstrate** writing both _black box_ and _white_box_ unit tests
 
 ### Sections
 

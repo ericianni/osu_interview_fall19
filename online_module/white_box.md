@@ -90,7 +90,7 @@ We finally have 100% statement coverage! YAY! There is nothing more to learn abo
 
 **Branch Coverage**
 
-How is it possible that running every statement in a program doesn't guarantee good coverage? The answer lies in how well our tests cover the different branches in our code. _Branches_ occur anywhere in the program where a decision must be made and the program. These decisions occur in statements that contain conditionals and we need to make sure each is tested as evaluating as either `True` or `False`.
+How is it possible that running every statement in a program doesn't guarantee good coverage? The answer lies in how well our tests cover the different branches in our code. _Branches_ occur anywhere in the program where a decision must be made. These decisions occur in statements that contain conditionals and we need to make sure each is tested as evaluating as either `True` or `False`.
 
 Take a look at the source of our new `mystery_func()` below. It consists of only 4 statements and they can all be covered by the test I have provided.
 
@@ -131,7 +131,7 @@ Do you think 100% branch coverage means 100% statement coverage? Why?
 
 **Condition Coverage**
 
-With branch coverage we were only concerned with if the `if` statement as a whole evaluated as either `True` or `False` because that is what dictates which branch is executed. With this new coverage criteria, we are concerned with _each_ condition within that `if` statement. 
+With branch coverage we were only concerned with the `if` statement as a whole evaluated as either `True` or `False` because that is what dictates which branch is executed. With this new coverage criteria, we are concerned with _each_ condition within that `if` statement. 
 
 _Condition_ coverage requires that we have tests that evaluate each individual condition as both `True` and `False`. If you look at the editor below, you will see the two tests I wrote before. 
 
@@ -206,7 +206,7 @@ But to continue our talk of subsumption, branch and condition coverage subsumes 
 
 **Path Coverage**
 
-Wait there are more types of coverage?! This is the last one we will discuss. Path coverage is where the tests strive to test every _path_ through the code. A path is a unique series of branches. So, with path coverage you will likely have to traverse each branch multiple times.
+Wait, there are more types of coverage?! This is the last one we will discuss. Path coverage is where the tests strive to test every _path_ through the code. A path is a unique series of branches. So, with path coverage you will likely have to traverse each branch multiple times.
 
 **Let's see what you can do!**
 
@@ -226,6 +226,6 @@ As you can probably guess, path coverage can get very complicated very quickly. 
 
 Believe it or not there are still more types of code coverage out there, but if you can remember these you are in _very_ good shape. The most important thing to remember is that just like black box testing, white box testing has large blind spots and it is important to use them together.
 
-Another thing to consider is that different application requirements will have different levels of coverage that are required. If you are writing a small app you don't need to probably use MC/DC, but if you are designing software for a 787 Dreamliner you will absolutely need to use it.
+Another thing to consider is that different application requirements will have different levels of coverage that are required. If you are writing a small app you probably don't need to use MC/DC, but if you are designing software for a 787 Dreamliner you will absolutely need to use it.
 
 Please proceed to the next section for a [Unit Test Debrief](./debrief.md)

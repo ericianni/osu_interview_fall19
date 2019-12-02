@@ -4,7 +4,7 @@
 
 ### What is Software Testing?
 
-As you learned in Software Engineering I, there are many approaches for developing software (e.g. waterfall and Agile). No matter which one you use, they all will generally have similar phases: Requirements, Design, Implementation, and Verification. _Software Testing_ occurs during the _Verification_ phase.
+As you learned in Software Engineering I, there are many approaches for developing software (e.g. Waterfall and Agile). No matter which one you use, they all will generally have similar phases: Requirements, Design, Implementation, and Verification. _Software Testing_ occurs during the _Verification_ phase.
 
 The goal of the Verification phase is to establish that the work done during the Implementation phase satisfies the Design and Requirements. In other words, "Does the code do the things we said we wanted it to do?" There are multiple ways of verifying software, but the one we are going to focus on is Software Testing (naturally).
 
@@ -22,7 +22,7 @@ By testing our software, we hope to identify instances where the behavior of the
 
 * **Error** - a mistake that introduces a fault (e.g. typo and conceptual misunderstanding)
 
-So, in plain English, a test can help identify when the program does not behave as intended and therefore indicates a fault exists. Once we know a fault exists, we can track it down and fix it, but we may never know what error actually caused the fault in the first place, but that is ultimately irrelevant.
+So, in plain English, a test can help identify when the program does not behave as intended and therefore indicates a fault exists. Once we know a fault exists, we can track it down and fix it. That said, we may never know what error actually caused the fault in the first place, but that is ultimately irrelevant.
 
 ### Types of Testing
 
@@ -61,7 +61,7 @@ These types of tests are used to verify that the software performs at the requir
 
 #### Ways of Testing
 
-Both Functional and Non-functional Testing is very important to the successful deployment of a software system. Within each category of testing there are many different approaches. Below are just a few of the dozens of testing methods.
+Both Functional and Non-functional Testing are very important to the successful deployment of a software system. Within each category of testing there are many different approaches. Below are just a few of the dozens of testing methods.
 
 **Types of Functional Testing**
 
@@ -77,7 +77,7 @@ Both Functional and Non-functional Testing is very important to the successful d
 
 For this class we will be focusing mostly on Functional Testing and, for this module, Unit Testing in particular.
 
-#### So, what is Unit Testing Already!?
+#### So, What is Unit Testing Already!?
 
 I have put this off long enough. It is time for the meat of the discussion! _Unit Testing_ is when individual _units_ of the software are _tested_...
 
@@ -95,9 +95,9 @@ To run the tests simply click the **play** button in the top center. In the cons
 
 **Leading Question Time**
 
-* Seeing as both of our tests pass we can safely assume `sum()` is correct and we don't need any more tests?
+* Seeing as both of our tests pass can we safely assume `sum()` is correct and we don't need any more tests?
 
-Considering that there is a "Write your own test!" comment I am sure you answered correctly that we can't assume `sum()` is correct. I can tell you now that there is indeed a **fault** in the code that leads to a **failure** (see what I did there?). Without looking at the implementation of `sum()` see if you can write a test that can expose the error. For more details on how to use _unittest_ please see the resource section below.
+Considering that there is a "Write your own test!" comment I am sure you answered correctly that we can't assume `sum()` is correct. I can tell you now that there is indeed a **fault** in the code that leads to a **failure** (see what I did there?). Without looking at the implementation of `sum()`, see if you can write a test that can expose the error. For more details on how to use _unittest_ please see the resource section below.
 
 When you either find the error or grow bored with the hoops I am asking you to jump through find me on the next page for the answer.
 
